@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+using UnityEditor;
 
 public class SpaceShipMovement : MonoBehaviour
 {
@@ -43,6 +45,8 @@ public class SpaceShipMovement : MonoBehaviour
     public GameObject Player;
     public GameObject ExplosionEffect;
 
+    public TextMeshProUGUI HeliosHP;
+
     void Start()
     {
         Player.SetActive(true); ExplosionEffect.SetActive(false);  //kezdesnel deaktivaljuk ezeket az objekteket
@@ -55,7 +59,9 @@ public class SpaceShipMovement : MonoBehaviour
 
     void Update()
     {
+        HeliosHP.text = ("Helios HP: " + StaticScript.HeliosHP);
         Boosting();
+        PlayerDeath();
 
         transform.position += transform.forward * shipSpeed * Time.deltaTime;  //urhajo mozgasa
 
@@ -185,9 +191,36 @@ public class SpaceShipMovement : MonoBehaviour
             Vector3 explosionPosition = Player.transform.position;
             explosionPosition.y += 10f;
             DeathCam.transform.position = explosionPosition;
-            Player.SetActive(false);
+            StaticScript.PlayerHP = 1f;
             DeathCam.SetActive(true);
             ExplosionEffect.SetActive(true);
+            Player.SetActive(false);
+        }
+    }
+
+    void PlayerDeath()
+    {
+        if(StaticScript.PlayerHP <= 0)
+        {
+            DeathCam.transform.rotation = TPCam.transform.rotation;
+            Vector3 explosionPosition = Player.transform.position;
+            explosionPosition.y += 10f;
+            DeathCam.transform.position = explosionPosition;
+            StaticScript.PlayerHP = 1f;
+            DeathCam.SetActive(true);
+            ExplosionEffect.SetActive(true);
+            Player.SetActive(false);
+        }
+        if (StaticScript.HeliosHP <= 0)
+        {
+            DeathCam.transform.rotation = TPCam.transform.rotation;
+            Vector3 explosionPosition = Player.transform.position;
+            explosionPosition.y += 10f;
+            DeathCam.transform.position = explosionPosition;
+            StaticScript.PlayerHP = 1f;
+            DeathCam.SetActive(true);
+            ExplosionEffect.SetActive(true);
+            Player.SetActive(false);
         }
     }
 }

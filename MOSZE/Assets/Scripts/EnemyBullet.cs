@@ -13,6 +13,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obsticle"))  //Ha eltalalja az "Obsticle" layerrel rendelkezo celpontot, torolje a tolteny
         {
+            StaticScript.HeliosHP = StaticScript.HeliosHP - 1f;
             Destroy(gameObject);
         }
         else
@@ -21,9 +22,17 @@ public class EnemyBullet : MonoBehaviour
             {
                 //Semmit ne csinaljon
             }
-            else
+            else 
             {
-                Destroy(gameObject);  //Ha barmi mast talal el, csak torolje a toltenyt
+                if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))  //ha eltalalja a playert, haljon meg a player
+                {
+                    StaticScript.PlayerHP = StaticScript.PlayerHP - 1f;
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);  //Ha barmi mast talal el, csak torolje a toltenyt
+                }                
             }
         }
     }
