@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class SpaceShipMovement : MonoBehaviour
 {
@@ -28,8 +31,23 @@ public class SpaceShipMovement : MonoBehaviour
     private float lastShootTime = 0f;
     public float shootInterval;
 
+    public Image BoostBar;  //Boost hasznalatahoz kapcsolatos valtozok
+    public float Boost, MaxBoost;
+    public float BoostCost;
+    private Coroutine recharge;
+    public float ChargeRate;
+    public GameObject BoostEffect;
+    public GameObject BoostBarShow;
+
+    public GameObject DeathCam;  //halalhoz kapcsolodo valtozok
+    public GameObject Player;
+    public GameObject ExplosionEffect;
+
     void Start()
     {
+        Player.SetActive(true); ExplosionEffect.SetActive(false);  //kezdesnel deaktivaljuk ezeket az objekteket
+        DeathCam.SetActive(false);
+        BoostEffect.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;  //kurzor eltuntetese kezdesnel
         FPCam.SetActive(true);  //belsonezet aktivalasa kezdesnel
         TPCam.SetActive(false);  //kulsonezet deaktivalasa kezdesnel
@@ -37,6 +55,8 @@ public class SpaceShipMovement : MonoBehaviour
 
     void Update()
     {
+        Boosting();
+
         transform.position += transform.forward * shipSpeed * Time.deltaTime;  //urhajo mozgasa
 
         if (shipSpeed < maxSpeed && throttle)
@@ -100,6 +120,74 @@ public class SpaceShipMovement : MonoBehaviour
             bullet1.GetComponent<Rigidbody>().linearVelocity = bulletSpawnPoint1.forward * bulletSpeed;
             var bullet2 = Instantiate(bulletPrefab, bulletSpawnPoint2.position, bulletSpawnPoint2.rotation);
             bullet2.GetComponent<Rigidbody>().linearVelocity = bulletSpawnPoint2.forward * bulletSpeed;
+        }
+    }
+
+    void Boosting()
+    {
+        if (Boost == MaxBoost)  //ha a boost maxon van, ne latszodjon egyebkent igen
+        {
+            BoostBarShow.SetActive(false);
+        }
+        else
+        {
+            BoostBarShow.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Boost > 0)  //boostolas
+        {
+            BoostEffect.SetActive(true);
+            maxSpeed = 250;
+            enginePower = 50;
+            Boost -= BoostCost * Time.deltaTime;
+            if(Boost < 0)
+            {
+                Boost = 0;
+            }
+            BoostBar.fillAmount = Boost / MaxBoost;
+            if (recharge != null)
+            {
+                StopCoroutine(recharge);
+            }
+            recharge = StartCoroutine(RechargeBoost());
+        }
+        else
+        {
+            BoostEffect.SetActive (false);
+            maxSpeed = 150;
+            enginePower = 20;
+            if(shipSpeed > 150)
+            {
+                shipSpeed = 150;
+            }
+        }
+    }
+
+    private IEnumerator RechargeBoost()  //Boost mutato ujratoltese
+    {
+        yield return new WaitForSeconds(3f);
+        while (Boost < MaxBoost)
+        {
+            Boost += ChargeRate / 10f;
+            if(Boost > MaxBoost)
+            {
+                Boost = MaxBoost;
+            }
+            BoostBar.fillAmount = Boost / MaxBoost;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)  //a kornyezettel (Heliossal) valo utkozes eseten robbanas
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Obsticle"))
+        {
+            DeathCam.transform.rotation = TPCam.transform.rotation;
+            Vector3 explosionPosition = Player.transform.position;
+            explosionPosition.y += 10f;
+            DeathCam.transform.position = explosionPosition;
+            Player.SetActive(false);
+            DeathCam.SetActive(true);
+            ExplosionEffect.SetActive(true);
         }
     }
 }

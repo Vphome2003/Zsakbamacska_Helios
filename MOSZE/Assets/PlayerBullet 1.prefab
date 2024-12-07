@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7317704832546509224}
   - component: {fileID: 3537614242478975153}
   - component: {fileID: 1979838468172745486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2073207915885470478}
   - component: {fileID: 1004299573728906650}
   - component: {fileID: 2042869424114271164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 4595490900832958436}
   - component: {fileID: 6385779832259421249}
   - component: {fileID: 2256923412352215291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerBullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
