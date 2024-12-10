@@ -183,9 +183,9 @@ public class SpaceShipMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)  //a kornyezettel (Heliossal) valo utkozes eseten robbanas
+    void OnCollisionEnter(Collision collision)  //a kornyezettel (Heliossal) vagy az ellenseggel valo utkozes eseten robbanas
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Obsticle"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Obsticle") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             DeathCam.transform.rotation = TPCam.transform.rotation;
             Vector3 explosionPosition = Player.transform.position;
@@ -200,7 +200,7 @@ public class SpaceShipMovement : MonoBehaviour
 
     void PlayerDeath()
     {
-        if(StaticScript.PlayerHP <= 0)
+        if(StaticScript.PlayerHP <= 0)  //Jatekos halala
         {
             DeathCam.transform.rotation = TPCam.transform.rotation;
             Vector3 explosionPosition = Player.transform.position;
@@ -211,7 +211,7 @@ public class SpaceShipMovement : MonoBehaviour
             ExplosionEffect.SetActive(true);
             Player.SetActive(false);
         }
-        if (StaticScript.HeliosHP <= 0)
+        if (StaticScript.HeliosHP <= 0)  //Helios halala eseten jatekos halala
         {
             DeathCam.transform.rotation = TPCam.transform.rotation;
             Vector3 explosionPosition = Player.transform.position;

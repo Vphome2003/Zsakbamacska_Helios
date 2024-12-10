@@ -21,6 +21,7 @@ public class DeathCam : MonoBehaviour
     {
         StaticScript.PlayerHP = 1;
         StaticScript.HeliosHP = 1000;
+        StaticScript.EnemyKillCount = 0;
         SceneManager.LoadScene("Level1");
     }
 

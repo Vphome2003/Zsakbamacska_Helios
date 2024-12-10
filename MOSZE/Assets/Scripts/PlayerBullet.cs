@@ -11,9 +11,9 @@ public class PlayerBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))  //Ha eltalalja az "enemy" layerrel rendelkezo celpontot, torolje az enemy-t es a tolteny is
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))  //Ha eltalalja az "enemy" layerrel rendelkezo celpontot, deaktivalja az enemy-t es torolje a tolteny
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
