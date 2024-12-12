@@ -11,6 +11,7 @@ public class AnimationScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         FadeOutAnimation.SetActive(false);
         HeliosVoiceLine.SetActive(false);
         FadeAnimation.SetActive(false);

@@ -46,6 +46,7 @@ public class SpaceShipMovement : MonoBehaviour
     public GameObject ExplosionEffect;
 
     public TextMeshProUGUI HeliosHP;
+    public TextMeshProUGUI Score;
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class SpaceShipMovement : MonoBehaviour
 
     void Update()
     {
+        Score.text = ("Score: " + StaticScript.EnemyKillCount * 100);
         HeliosHP.text = ("Helios HP: " + StaticScript.HeliosHP);
         Boosting();
         PlayerDeath();
