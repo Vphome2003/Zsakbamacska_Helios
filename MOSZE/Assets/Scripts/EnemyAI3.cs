@@ -56,7 +56,7 @@ public class EnemyAI3 : MonoBehaviour
 
     IEnumerator Shooting()
     {
-        yield return new WaitForSeconds(1f);   //3mp mulva lojjon megallas nelkul
+        yield return new WaitForSeconds(1f);   //1mp mulva lojjon megallas nelkul
         if (inRange)
         {
             var bullet1 = Instantiate(bulletPrefab, bulletSpawnPoint1.position, bulletSpawnPoint1.rotation);

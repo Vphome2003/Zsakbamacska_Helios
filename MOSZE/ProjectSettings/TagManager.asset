@@ -18,10 +18,10 @@ TagManager:
   - EnemyBullet
   - Bomb
   - Asteroid
-  - 
-  - 
-  - 
-  - 
+  - HugeEnemyBullet
+  - BigEnemy1
+  - BigEnemy2
+  - BigEnemy3
   - 
   - 
   - 

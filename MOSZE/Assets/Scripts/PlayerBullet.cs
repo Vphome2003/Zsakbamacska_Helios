@@ -18,14 +18,32 @@ public class PlayerBullet : MonoBehaviour
         }
         else
         {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Player")) //Ha eltalalja a jatekost
+            if(collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy1"))
             {
-                //Semmit ne csinaljon
+                StaticScript.BigEnemyHP1--;
+                Destroy(gameObject);
+            }
+            else if(collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy2"))
+            {
+                StaticScript.BigEnemyHP2--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy3"))
+            {
+                StaticScript.BigEnemyHP3--;
+                Destroy(gameObject);
             }
             else
             {
-                Destroy(gameObject);  //Ha barmi mast talal el, csak torolje a toltenyt
-            }            
+                if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) //Ha eltalalja a jatekost
+                {
+                    //Semmit ne csinaljon
+                }
+                else
+                {
+                    Destroy(gameObject);  //Ha barmi mast talal el, csak torolje a toltenyt
+                }
+            }          
         }
     }
 }

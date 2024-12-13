@@ -1,7 +1,8 @@
-using TMPro;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class DeathCam : MonoBehaviour
 {
