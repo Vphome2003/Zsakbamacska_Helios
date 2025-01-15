@@ -5,11 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
 
-public class Station2 : MonoBehaviour
+public class Station3 : MonoBehaviour
 {
     public GameObject Enemy1;
-    public GameObject Enemy2;
     public GameObject Enemy3;
+    public GameObject Enemy4;
+    public GameObject Enemy5;
+    public GameObject Enemy6;
+    public GameObject Enemy7;
+    public GameObject Enemy8;
+    public GameObject Enemy9;
+    public GameObject Enemy10;
+    public GameObject Enemy11;
 
     private bool EngineOpen = false;
 
@@ -21,50 +28,31 @@ public class Station2 : MonoBehaviour
     public GameObject Pipe;
 
     public Transform player;
-    public float range = 10f;
+    public float range = 1200f;
 
     public GameObject EnemyNerby;
-    public TextMeshProUGUI NerbyText;
 
-    public TextMeshProUGUI Enemy1HP;
-    public TextMeshProUGUI Enemy2HP;
-    public TextMeshProUGUI Enemy3HP; 
+    public TextMeshProUGUI NerbyText;
 
     void Start()
     {
-        StaticScript.Station2EnemyCount = 3;
-        if (StaticScript.Station2Checkpoint == true)
+        StaticScript.Station3EnemyCount = 10;
+        if (StaticScript.Station3Checkpoint == true)
         {
-            Pipe.SetActive(false);  StaticScript.BigEnemyHP1 = 0f; StaticScript.BigEnemyHP2 = 0f; StaticScript.BigEnemyHP3 = 0f;
+            Pipe.SetActive(false); Enemy5.SetActive(false); Enemy6.SetActive(false); Enemy7.SetActive(false); Enemy8.SetActive(false); Enemy9.SetActive(false);
+            Enemy1.SetActive(false); Enemy3.SetActive(false); Enemy4.SetActive(false); Enemy10.SetActive(false); Enemy11.SetActive(false);
             Engine1.SetActive(false); Engine2.SetActive(false); EngineOpen = true; Engine3.SetActive(false); Engine4.SetActive(false);
         }
     }
 
     void Update()
     {
-        NerbyText.text = ("Enemies Nerby: " + StaticScript.Station2EnemyCount);
-        Enemy1HP.text = ("Enemy HP: " + StaticScript.BigEnemyHP1);
-        Enemy2HP.text = ("Enemy HP: " + StaticScript.BigEnemyHP2);
-        Enemy3HP.text = ("Enemy HP: " + StaticScript.BigEnemyHP3);
-
-        if(StaticScript.BigEnemyHP1 <= 0)
-        {
-            StaticScript.BigEnemyHP1 = 0f;
-            Enemy1.SetActive(false);
-        }
-        if (StaticScript.BigEnemyHP2 <= 0)
-        {
-            StaticScript.BigEnemyHP2 = 0f;
-            Enemy2.SetActive(false);
-        }
-        if (StaticScript.BigEnemyHP3 <= 0)
-        {
-            StaticScript.BigEnemyHP3 = 0f;
-            Enemy3.SetActive(false);
-        }
+        NerbyText.text = ("Enemies Nerby: " + StaticScript.Station3EnemyCount);
 
         if (!Enemy1.activeInHierarchy && !Enemy3.activeInHierarchy &&
-           !Enemy2.activeInHierarchy && !EngineOpen)
+           !Enemy4.activeInHierarchy && !Enemy5.activeInHierarchy && !Enemy6.activeInHierarchy &&
+           !Enemy7.activeInHierarchy && !Enemy8.activeInHierarchy && !Enemy9.activeInHierarchy &&
+           !Enemy10.activeInHierarchy && !Enemy11.activeInHierarchy && !EngineOpen)
         {
             Engine1.SetActive(true);
             Engine2.SetActive(true);
@@ -77,7 +65,7 @@ public class Station2 : MonoBehaviour
            && !Engine4.activeInHierarchy)
         {
             Pipe.SetActive(false);
-            StaticScript.Station2Checkpoint = true;
+            StaticScript.Station3Checkpoint = true;
         }
 
         float distanceToPlayer = Vector3.Distance(player.position, transform.position);  //jatekos tavolsaga

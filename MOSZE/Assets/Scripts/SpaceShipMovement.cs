@@ -188,7 +188,7 @@ public class SpaceShipMovement : MonoBehaviour
     void OnCollisionEnter(Collision collision)  //a kornyezettel (Heliossal) vagy az ellenseggel valo utkozes eseten robbanas
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Obsticle") || collision.gameObject.layer == LayerMask.NameToLayer("Enemy") || collision.gameObject.layer == LayerMask.NameToLayer("Asteroid") ||
-            collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy1") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy2") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy3"))
+            collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy1") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy2") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy3") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy4") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy5"))
         {
             DeathCam.transform.rotation = TPCam.transform.rotation;
             Vector3 explosionPosition = Player.transform.position;

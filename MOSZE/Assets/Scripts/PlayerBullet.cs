@@ -33,6 +33,16 @@ public class PlayerBullet : MonoBehaviour
                 StaticScript.BigEnemyHP3--;
                 Destroy(gameObject);
             }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy4"))
+            {
+                StaticScript.BigEnemyHP4--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy5"))
+            {
+                StaticScript.BigEnemyHP5--;
+                Destroy(gameObject);
+            }
             else
             {
                 if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) //Ha eltalalja a jatekost
