@@ -43,6 +43,46 @@ public class PlayerBullet : MonoBehaviour
                 StaticScript.BigEnemyHP5--;
                 Destroy(gameObject);
             }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun"))
+            {
+                StaticScript.GunHP--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun2"))
+            {
+                StaticScript.GunHP2--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun3"))
+            {
+                StaticScript.GunHP3--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun4"))
+            {
+                StaticScript.GunHP4--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun5"))
+            {
+                StaticScript.GunHP5--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun6"))
+            {
+                StaticScript.GunHP6--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun7"))
+            {
+                StaticScript.GunHP7--;
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BossGun8"))
+            {
+                StaticScript.GunHP8--;
+                Destroy(gameObject);
+            }
             else
             {
                 if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) //Ha eltalalja a jatekost

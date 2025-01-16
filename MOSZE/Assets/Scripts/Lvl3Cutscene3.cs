@@ -15,5 +15,7 @@ public class Lvl3Cutscene3 : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Sphere.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(9);
     }
 }

@@ -18,7 +18,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy1") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy2") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy3") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy4") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy5")) //Ha eltalal egy masik ellenfelet
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy1") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy2") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy3") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy4") || collision.gameObject.layer == LayerMask.NameToLayer("BigEnemy5") || collision.gameObject.layer == LayerMask.NameToLayer("Turret")) //Ha eltalal egy masik ellenfelet
             {
                 //Semmit ne csinaljon
             }

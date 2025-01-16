@@ -23,6 +23,15 @@ public class StaticScript : MonoBehaviour
     static public float BigEnemyHP4 = 30;
     static public float BigEnemyHP5 = 30;
 
+    static public float GunHP = 30;
+    static public float GunHP2 = 30;
+    static public float GunHP3 = 30;
+    static public float GunHP4 = 30;
+    static public float GunHP5 = 30;
+    static public float GunHP6 = 30;
+    static public float GunHP7 = 30;
+    static public float GunHP8 = 30;
+
     void Start()
     {
         PlayerHP = 1f;
