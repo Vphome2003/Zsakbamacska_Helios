@@ -14,6 +14,6 @@ public class Restartlvl3_1 : MonoBehaviour
         StaticScript.GunHP6 = 30;
         StaticScript.GunHP7 = 30;
         StaticScript.GunHP8 = 30;
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(10);
     }
 }

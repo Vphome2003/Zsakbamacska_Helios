@@ -33,14 +33,14 @@ public class LevelSelectMenu : MonoBehaviour
 
     public void Level1()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
     public void Level2()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
     public void Level3()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
     }
 }

@@ -110,7 +110,7 @@ public class Pointlvl3 : MonoBehaviour
     IEnumerator EndCutscene()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene(11);
     }
 
 }

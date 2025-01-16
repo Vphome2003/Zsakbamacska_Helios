@@ -42,6 +42,6 @@ public class Level2EndScene : MonoBehaviour
     public void BackToMenu()
     {
         StaticScript.Level3Unlocked = true;
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(0);
     }
 }

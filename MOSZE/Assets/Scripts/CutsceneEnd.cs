@@ -52,6 +52,6 @@ public class CutsceneEnd : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(0);
     }
 }

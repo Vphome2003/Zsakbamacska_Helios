@@ -20,6 +20,6 @@ public class CutsceneStarterlvl3 : MonoBehaviour
     IEnumerator StartSwitch()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
     }
 }
