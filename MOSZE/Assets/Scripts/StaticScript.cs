@@ -32,6 +32,9 @@ public class StaticScript : MonoBehaviour
     static public float GunHP7 = 30;
     static public float GunHP8 = 30;
 
+    static public bool Level2Unlocked = false;
+    static public bool Level3Unlocked = false;
+
     void Start()
     {
         PlayerHP = 1f;

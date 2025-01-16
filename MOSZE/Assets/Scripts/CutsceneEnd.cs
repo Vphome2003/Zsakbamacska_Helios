@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutsceneEnd : MonoBehaviour
 {
@@ -46,5 +47,11 @@ public class CutsceneEnd : MonoBehaviour
         Enemy.SetActive(false);
         yield return new WaitForSeconds(2f);
         VictoryText.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(11);
     }
 }
