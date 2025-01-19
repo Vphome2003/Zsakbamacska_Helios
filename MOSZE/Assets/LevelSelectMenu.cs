@@ -29,6 +29,11 @@ public class LevelSelectMenu : MonoBehaviour
             Level3Unlocked.SetActive(true);
             Level3Locked.SetActive(false);
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            StaticScript.Level2Unlocked = true;
+            StaticScript.Level3Unlocked = true;
+        }
     }
 
     public void Level1()
